@@ -1,0 +1,1 @@
+INSERT INTO Pessoa(id, nome, idade) VALUES(1,'Default', 0);
