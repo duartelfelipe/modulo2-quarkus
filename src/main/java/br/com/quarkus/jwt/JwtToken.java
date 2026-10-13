@@ -8,11 +8,16 @@ import java.util.HashSet;
 
 public class JwtToken {
     static void main() {
-        String token = Jwt.issuer("https://example.com/issuer")
-                .upn("jdoe@quarkus.io")
-                .groups(new HashSet<>(Arrays.asList("User", "Admin")))
-                .claim(Claims.birthdate.name(), "2001-07-13")
-                .sign();
+//        String token = Jwt.issuer("https://quarkus.io/using-jwt-rbac")
+//                .upn("jdoe@quarkus.io")
+//                .groups(new HashSet<>(Arrays.asList("jdoe", "Subscriber")))
+//                .claim(Claims.birthdate.name(), "2001-07-13")
+//                .sign();
+        String token = Jwt.issuer("https://quarkus.io/using-jwt-rbac")
+                        .upn("jdoe@quarkus.io")
+                        .groups(new HashSet<>(Arrays.asList("User", "Admin")))
+                        .claim(Claims.birthdate.name(), "2001-07-13")
+                        .sign();
         System.out.println(token);
         System.exit(0);
     }

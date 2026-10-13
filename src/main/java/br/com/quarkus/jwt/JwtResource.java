@@ -7,6 +7,8 @@ import jakarta.ws.rs.Path;
 import org.eclipse.microprofile.jwt.Claim;
 import org.eclipse.microprofile.jwt.Claims;
 
+import java.util.Optional;
+
 @RequestScoped
 @Path("jwt")
 public class JwtResource {
@@ -18,8 +20,8 @@ public class JwtResource {
 
     @GET
     @Path("claim")
-    @RolesAllowed("Subscriber")
+    @RolesAllowed("Admin")
     public String getUsernameClaim() {
-        return username.concat("+").concat(birthdate);
+        return Optional.ofNullable(username).orElse("").concat("+").concat(birthdate);
     }
 }
